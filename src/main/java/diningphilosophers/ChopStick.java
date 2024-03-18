@@ -6,13 +6,22 @@ import java.util.concurrent.locks.ReentrantLock;
 public class ChopStick {
 
     private static int stickCount = 0;
+
+
     private boolean iAmFree = true;
     private final int myNumber;
+
+
     private final static Lock lock = new ReentrantLock();
+
 
     public ChopStick() {
         myNumber = ++stickCount;
     }
+
+
+
+
 
     public boolean tryTake(int delay) throws InterruptedException {
         if (!iAmFree) {
@@ -25,6 +34,8 @@ public class ChopStick {
         else{
             lock.lock();
         }
+
+
         iAmFree = false;
         // Pas utile de faire notifyAll ici, personne n'attend qu'elle soit occupée
         return true; // Succès
@@ -42,6 +53,8 @@ public class ChopStick {
 
     @Override
     public String toString() {
+
+
         return "Stick#" + myNumber;
     }
 }
