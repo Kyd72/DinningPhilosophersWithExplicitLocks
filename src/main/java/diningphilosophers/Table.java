@@ -1,6 +1,8 @@
 package diningphilosophers;
 
+
 import java.io.IOException;
+import java.util.concurrent.locks;
 
 public class Table {
 
